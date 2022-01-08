@@ -1,1 +1,35 @@
-<paste log output from Kubernetes-mediated prediction, here>
+
+[tobias@lappy project-ml-microservice-kubernetes]$ ./run_kubernetes.sh 
+deployment.apps/uda-app created
+deployment.apps/uda-app env updated
+NAMESPACE              NAME                                         READY   STATUS              RESTARTS      AGE
+default                uda-app-64f69df848-njjkd                     0/1     ContainerCreating   0             1s
+default                uda-app-6c7fc56f46-92sbz                     0/1     ContainerCreating   0             1s
+kube-system            coredns-78fcd69978-7vw5g                     1/1     Running             1 (35m ago)   2d
+kube-system            etcd-minikube                                1/1     Running             1 (35m ago)   2d
+kube-system            kube-apiserver-minikube                      1/1     Running             1 (35m ago)   2d
+kube-system            kube-controller-manager-minikube             1/1     Running             1 (35m ago)   2d
+kube-system            kube-proxy-zpvwd                             1/1     Running             1 (35m ago)   2d
+kube-system            kube-scheduler-minikube                      1/1     Running             1 (35m ago)   2d
+kube-system            storage-provisioner                          1/1     Running             3 (34m ago)   2d
+kubernetes-dashboard   dashboard-metrics-scraper-5594458c94-psdqj   1/1     Running             1 (35m ago)   2d
+kubernetes-dashboard   kubernetes-dashboard-654cf69797-5fcj6        1/1     Running             2 (34m ago)   2d
+error: unable to forward port because pod is not running. Current status=Pending
+
+#Forward manually 
+kubectl port-forward deployment/uda-app 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+
+
+###### other bash session #######
+
+[tobias@lappy project-ml-microservice-kubernetes]$ ./make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
