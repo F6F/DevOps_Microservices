@@ -16,6 +16,8 @@ kubectl set env deployment/uda-app  DOMAIN=cluster
 # List kubernetes pods
 kubectl get pods --all-namespaces 
 
+sleep 10s 
+
 # Step 4:
 # Forward the container port to a host
 #kubectl expose deployment uda-app --port=8000 --target-port=80 --name=uda-app
