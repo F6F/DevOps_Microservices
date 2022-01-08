@@ -4,6 +4,8 @@ This repository is associated with Cloud DevOps ND - Course 04 - Microservices a
 1. Supporting material used in the video demonstration in the course 
 1. Starting code for a project, in which you can containerize and deploy a machine learning srevice using Kubernetes.
 
+Build status: [![CircleCI](https://circleci.com/gh/F6F/DevOps_Microservices/tree/master.svg?style=svg)](https://circleci.com/gh/F6F/DevOps_Microservices/tree/master)
+
 ---
 
 ### A. Dependencies
